@@ -567,14 +567,15 @@ static signed char cb(struct lejp_ctx *ctx, char reason) {
                                     pthread_mutex_lock(&DataQueueMutex);
                                     AddData(&DataQueues[j],incoming_data);
                                     pthread_mutex_unlock(&DataQueueMutex);
-                                    /*
+                                    
                                     write_transcaction_=1;
                                     t_index = j;
                                 	pthread_cond_signal(&writeTranscaction);
                                     pthread_mutex_lock(&DataQueueMutex);
                                     AddData(&DataQueues[j],incoming_data);
                                     pthread_mutex_unlock(&DataQueueMutex);
-                                    api_timestamp = strtol(transcaction.timestamp, NULL, 10);
+                                    /*
+									api_timestamp = strtol(transcaction.timestamp, NULL, 10);
                                     api_sec = api_timestamp / 1000;      // Seconds part
                                     api_usec = (api_timestamp % 1000) * 1000; // Microseconds part
                                     
@@ -906,3 +907,4 @@ int main(void)
       fclose(files_arr[i].candlestick);
     }
 } 
+
